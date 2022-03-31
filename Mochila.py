@@ -1,11 +1,13 @@
 # Generación de la población inicial según el problema
 import random
 import numpy as np
+import pandas as pd
 import numpy
 import GenerarPoblacion
 import Aptitud
 import Sumatoria
 import probabilidad
+
 
 cromosomas = 6  # numero de individuos
 genes = 11  # Genes
@@ -32,6 +34,9 @@ def prob_total(prob_calorias, prob_peso):
 
 # generacion de poblacion
 genPob = GenerarPoblacion(cromosomas, genes, Pesos, calorias)
+print("Paso 1")
+print("POBLACION INICIAL",genPob.shape)
+print("")
 print(genPob)
 
 # Aptitud peso
@@ -51,17 +56,15 @@ probabilidad_peso = probabilidad(aptitud.arreglopeso, suma_peso)
 # probabilidad calorias
 probabilidad_calorias = probabilidad(aptitud.arreglocalorias, suma_calorias)
 
-print("probabilidad Peso")
 print("")
+print("Probabilidad Peso")
 print("[")
 for i in probabilidad_peso:
     print(f"[ % .2f ]" % i)
 print("]")
 print("")
 
-
-print("probabilidad calorias")
-print("")
+print("Probabilidad calorias")
 print("[")
 for i in probabilidad_calorias:
     print(f"[ % .2f ]" % i)
@@ -69,26 +72,34 @@ print("]")
 print("")
 
 total = prob_total(probabilidad_peso, probabilidad_calorias)
-print("probabilidad total")
-print("")
+print("Probabilidad total")
 print("[")
 for i in total:
     print(f"[ % .2f ]" % i)
 print("]")
 print("")
+
 # Paso 3 Seleccion                     
 ##Concatenar la matriz poblacion con el vector obtenido
 print("Paso 3")
 def ordenarPorPosicionSubLista(lista: genPob, posicionOrdenar: int) -> genPob:
     return(sorted(genPob, key = lambda elemento: elemento[posicionOrdenar-1],reverse = True))
 genPob=np.c_[genPob,total]
-print("Matriz con fitness")
+
 genPob=ordenarPorPosicionSubLista(genPob,12)
-print(genPob)
-genPob.pop(5)
-genPob.append(genPob[0])
-print("Matriz final")
-print(genPob)
+print("")
+print("Matriz ordenada")
+print ("")
+df = pd.DataFrame(genPob, columns=['-', '-', '-','G', 'E', 'N','E', 'S', '-','-', '-', 'Total'])
+print(df)
+genPob[5]=genPob[0]
+print("")
+print("Matriz Final") #Muere el individuo con menor resultado, y es reemplazado por el mejor
+print ("")
+df = pd.DataFrame(genPob, columns=['-', '-', '-','G', 'E', 'N','E', 'S', '-','-', '-', 'Total'])
+print(df)
+
+
 # Paso 4 Cruce de individuos                     
 
 

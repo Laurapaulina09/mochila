@@ -6,6 +6,7 @@ import sys
 
 def GenerarPoblacion(cromosomas,genes,Pesos,calorias):
   poblacion = np.zeros([cromosomas, genes])
+  
   #Se llena la poblacion aleatoriamente
   for i in range(cromosomas):
       n = 1
@@ -21,7 +22,7 @@ def GenerarPoblacion(cromosomas,genes,Pesos,calorias):
 
         if Apt_p <= 2  and Apt_c >= 2300:
             n = 0
-    
+
   return poblacion
   
 sys.modules[__name__] = GenerarPoblacion

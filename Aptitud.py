@@ -8,8 +8,9 @@ class Aptitud:
 
     def peso(self, pes,genPob):
       print("")
-      print("Aptitud peso") 
+      print("Paso 2")
       print("")
+      print("Aptitud peso") 
       print("[")
       for i in genPob:# i representa las filas de la poblacion
         x = 0 #cada posicion de la fila 
@@ -25,7 +26,6 @@ class Aptitud:
     def calorias(self,cal,genPob):
       print("")
       print("Aptitud calorias")
-      print("")
       print("[")
       for j in genPob:
         y=0
