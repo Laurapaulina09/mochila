@@ -1,6 +1,5 @@
 # Generación de la población inicial según el problema
 import random
-from tkinter import N
 import numpy as np
 import numpy
 import GenerarPoblacion
