@@ -8,10 +8,11 @@ class Aptitud:
 
     def peso(self, pes,genPob):
       print("")
-      print("Paso 2")
+      print("Evaluación")
       print("")
       print("Aptitud peso") 
       print("[")
+      self.arreglopeso=[]
       for i in genPob:# i representa las filas de la poblacion
         x = 0 #cada posicion de la fila 
         suma=0 #suma del peso
@@ -27,6 +28,7 @@ class Aptitud:
       print("")
       print("Aptitud calorias")
       print("[")
+      self.arreglocalorias=[]
       for j in genPob:
         y=0
         suma=0

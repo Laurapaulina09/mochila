@@ -24,5 +24,7 @@ def GenerarPoblacion(cromosomas,genes,Pesos,calorias):
             n = 0
 
   return poblacion
+
+
   
 sys.modules[__name__] = GenerarPoblacion
